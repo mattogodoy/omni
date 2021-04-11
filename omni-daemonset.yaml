@@ -35,3 +35,6 @@ spec:
         - name: rootfs
           mountPath: /rootfs/proc
           readOnly: true
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
