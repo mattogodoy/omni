@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: omni-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: omni-monitor
+  template:
+    metadata:
+      labels:
+        app: omni-monitor
+    spec:
+      volumes:
+      - name: rootfs
+        hostPath:
+          path: /proc
+      containers:
+      - name: omni
+        image: mattogodoy/omni:arm
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: omni-config
+        env:
+        - name: OMNI_HOST_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: OMNI_HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        volumeMounts:
+        - name: rootfs
+          mountPath: /rootfs/proc
+          readOnly: true

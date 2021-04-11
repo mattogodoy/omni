@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: omni-config
+data:
+  OMNI_INFLUX_URL: your-url-here  # Example: http://192.168.1.10:8086
+  OMNI_INFLUX_TOKEN: your-token-here
+  OMNI_INFLUX_BUCKET: your-bucket-here
+  OMNI_INFLUX_ORG: your-organization-here
+  OMNI_DATA_RATE_SECONDS: "5"

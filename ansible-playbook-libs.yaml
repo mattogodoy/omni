@@ -1,0 +1,15 @@
+---
+  # For Python time to work
+- name: Install libseccomp2.deb library in all nodes
+  hosts: <your-hosts-here>
+  remote_user: pi
+  become_method: sudo
+
+  tasks:
+    - name: Download libseccomp2.deb
+      command: "wget http://ftp.us.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.5.1-1_armhf.deb"
+      become: yes
+
+    - name: Install libseccomp2.deb
+      command: "dpkg -i libseccomp2_2.5.1-1_armhf.deb"
+      become: yes
