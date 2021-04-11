@@ -31,24 +31,24 @@ For Omni to work, you need to have the `libseccomp2.deb` library installed in ea
 
 (more info [here](https://github.com/linuxserver/docker-papermerge/issues/4#issuecomment-735236388))
 
-To install it you can do it in two ways:
+To install it you can do it in two ways (**only one is needed**):
 
-### Ansible (all nodes at the same time)
+- **Ansible:** *all nodes at the same time*
 
-Edit the file `ansible-playbook-libs.yaml` in this repo, add your hosts and run:
+    Edit the file `ansible-playbook-libs.yaml` in this repo, add your hosts and run:
 
-``` bash
-ansible-playbook install-libs.yaml
-```
+    ``` bash
+    ansible-playbook install-libs.yaml
+    ```
 
-### SSH (one by one)
+- **SSH:** *one by one*
 
-Connect into each of your nodes and run:
+    Connect into each of your nodes and run:
 
-``` bash
-wget http://ftp.us.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.5.1-1_armhf.deb
-sudo dpkg -i libseccomp2_2.5.1-1_armhf.deb
-```
+    ``` bash
+    wget http://ftp.us.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.5.1-1_armhf.deb
+    sudo dpkg -i libseccomp2_2.5.1-1_armhf.deb
+    ```
 
 Once you have it, everything should work ok.
 
