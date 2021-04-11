@@ -2,6 +2,8 @@
 
 A very lightweight monitoring system for Raspberry Pi clusters running Kubernetes.
 
+![omni](img/omni_board.png?raw=true "InfluxDB dashboard with Omni data")
+
 ## Why?
 
 When I finished my Kubernetes cluster using a few Raspberry Pis, the first thing I wanted to do is install Prometheus + Grafana for monitoring, and so I did. But when I had all of it working I found a few drawbacks:
