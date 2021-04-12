@@ -27,17 +27,17 @@ Omni has (what I consider) some advantages over the regular Prometheus + Grafana
 
 ## Prerequisites
 
-For Omni to work, you need to have a couple of things running first.
+For Omni to work, you'll need to have a couple of things running first.
 
 #### InfluxDB
 
-It's a time series database (just like Prometheus), but has nicer charts and UI overall.
+It's a time series database (just like Prometheus) that has nice charts and UI overall.
 
-One of the goals of this project is to save the SD card from constant writing, so you have a few options for InfluxDB:
+One of the goals of this project is to avoid constant writing to the SD cards, so you have a few options for the placement of the database:
 
-1. Use their online service (there is even a free tier https://www.influxdata.com/influxdb-pricing/)
-2. Run an InfluxDB instance in a server outside the Pi cluster (this is the one I'm using right now)
-3. If you have better storage in your cluster (M.2, SSD, etc.) run InfluxDB inside the same cluster using those to store the data.
+1. Use InfluxDB's online service (there is even a free tier https://www.influxdata.com/influxdb-pricing/)
+2. Run an InfluxDB instance in a server outside the Pi cluster (this what I'm doing right now)
+3. If you have better storage in your cluster (like M.2, SSD, etc.) and don't have the SD card limitation, run InfluxDB in the same cluster.
 
 #### Libraries
 
