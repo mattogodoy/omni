@@ -20,9 +20,9 @@ Last but not least, I like to learn how these things work.
 Omni has (what I consider) some advantages over the regular Prometheus + Grafana combo:
 
 - It uses almost no RAM (13 Mb)
-- It uses almost no CPU (between 2m and 6m)
+- It uses almost no CPU
 - It gathers only the information I need
-- All of the information is sent to an InfluxDB instance that could be inside or outside the cluster. This means that no information is persisted in the disk, extending the SD cards lifetime.
+- All of the information is sent to an InfluxDB instance that could be outside of the cluster. This means that no information is persisted in the Pis, extending their SD card's lifetime.
 - InfluxDB acts as the database and the graph dashboard at the same time, so there is no need to also install Grafana (although you could if you wanted to).
 
 ## Prerequisites
