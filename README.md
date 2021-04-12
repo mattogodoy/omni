@@ -29,7 +29,7 @@ Omni has (what I consider) some advantages over the regular Prometheus + Grafana
 
 For Omni to work, you need to have a couple of things running first.
 
-#### InfluxDB
+#### InfluxDB
 
 It's a time series database (just like Prometheus), but has nicer charts and UI overall.
 
