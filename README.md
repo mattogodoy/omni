@@ -20,14 +20,28 @@ Last but not least, I like to learn how these things work.
 Omni has (what I consider) some advantages over the regular Prometheus + Grafana combo:
 
 - It uses almost no RAM (13 Mb)
-- It uses almost no CPU (between 2m and 6m)
+- It uses almost no CPU
 - It gathers only the information I need
-- All of the information is sent to an InfluxDB instance that could be inside or outside the cluster. This means that no information is persisted in the disk, extending the SD cards lifetime.
+- All of the information is sent to an InfluxDB instance that could be outside of the cluster. This means that no information is persisted in the Pis, extending their SD card's lifetime.
 - InfluxDB acts as the database and the graph dashboard at the same time, so there is no need to also install Grafana (although you could if you wanted to).
 
 ## Prerequisites
 
-For Omni to work, you need to have the `libseccomp2.deb` library installed in each of your nodes to avoid a Python error:
+For Omni to work, you'll need to have a couple of things running first.
+
+#### InfluxDB
+
+It's a time series database (just like Prometheus) that has nice charts and UI overall.
+
+One of the goals of this project is to avoid constant writing to the SD cards, so you have a few options for the placement of the database:
+
+1. Use InfluxDB's online service (there is even a free tier https://www.influxdata.com/influxdb-pricing/)
+2. Run an InfluxDB instance in a server outside the Pi cluster (this what I'm doing right now)
+3. If you have better storage in your cluster (like M.2, SSD, etc.) and don't have the SD card limitation, run InfluxDB in the same cluster.
+
+#### Libraries
+
+You'll need to have the `libseccomp2.deb` library installed in each of your nodes to avoid a Python error:
 
 `Fatal Python Error: pyinit_main: can't initialize time`
 
