@@ -54,46 +54,18 @@ To install it you can do it in two ways (**only one is needed**):
 
 Once you have it, everything should work ok.
 
-## Setup
-
-Before deploying you'll have to specify the attributes of your InfluxDB instance.
-
-1. Copy the configuration template file to the one you'll deploy:
-
-    ``` bash
-    cp omni-config-example.yaml omni-config.yaml
-    ```
-
-2. Open `omni-config.yaml` and fill the variables with your InfluxDB instance information.
-
-    *NOTE: The attribute `OMNI_DATA_RATE_SECONDS` specifies the number of seconds that pass between data reporting events that are sent to the InfluxDB server.*
-
-3. Deploy the configuration for Omni to work:
-
-    ``` bash
-    kubectl apply -f omni-config.yaml
-    ```
-
-4. Check that the configuration were created correctly:
-
-    ``` bash
-    kubectl describe configmap omni-config
-    ```
-
-    You should see the configuration values.
-
 ## Installation
 
-Once the configuration is done, all that is left is to deploy the DaemonSet of Omni pods:
+Before deploying Omni you'll have to specify the attributes of your InfluxDB instance.
+
+1. Open `omni-install.yaml` and fill the variables with your InfluxDB instance information.
+
+    *NOTE: The attribute `OMNI_DATA_RATE_SECONDS` specifies the number of seconds between data reporting events that are sent to the InfluxDB server.*
+
+2. Check that everything is running as expected:
 
 ``` bash
-kubectl apply -f omni-daemonset.yaml
-```
-
-Check that everything is running as expected:
-
-``` bash
-kubectl get pods
+kubectl get all -n omni-system
 ```
 
 And you are done! 🎉

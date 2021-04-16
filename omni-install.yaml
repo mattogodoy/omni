@@ -1,7 +1,29 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: omni-system
+
+---
+
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: omni-config
+  namespace: omni-system
+data:
+  OMNI_INFLUX_URL: "<your-url-here>"
+  OMNI_INFLUX_TOKEN: "<your-token-here>"
+  OMNI_INFLUX_BUCKET: "<your-bucket-here>"
+  OMNI_INFLUX_ORG: "<your-organization-here>"
+  OMNI_DATA_RATE_SECONDS: "5"
+
+---
+
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: omni-daemonset
+  name: omni-metrics
+  namespace: omni-system
 spec:
   selector:
     matchLabels:
