@@ -68,7 +68,7 @@ To install it you can do it in two ways (**only one is needed**):
 
 Once you have it, everything should work ok.
 
-⚠️ **NOTE:** These libraries are for the armhf (32-bit version) operative systems. If you are running a 64-bit version, please refer to this issue for instructions.
+⚠️ **NOTE:** These libraries are for the armhf (32-bit version) operative systems. If you are running a 64-bit version, please refer to [this issue](https://github.com/mattogodoy/omni/issues/3) for instructions.
 
 ## Installation
 
